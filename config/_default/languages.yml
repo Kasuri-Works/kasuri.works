@@ -1,0 +1,73 @@
+en:
+  languageCode: en
+  languageName: English
+  weight: 1
+  title: Kasuri Works Blog
+  menu:
+    main:
+      - name: Archive
+        url: archives
+        weight: 5
+      - name: Search
+        url: search
+        weight: 10
+      - name: Tags
+        url: tags
+        weight: 15
+  params:
+    description: ""
+    homeInfoParams:
+      Title: "Kasuri Works Blog"
+      Content: >
+        kasuri works is a tiny game studio making small, honest games.
+        Sometimes it’s just one person. But every game we make comes from something real — a memory, a frustration, a moment that stayed with us.
+        We believe games don’t have to be loud or perfect. They can be quiet, emotional, unfinished — as long as they’re sincere.
+        If something we make makes you feel seen, that’s enough.
+zh:
+  languageName: 简体中文
+  weight: 2
+  title: 絣工坊博客
+  menu:
+    main:
+      - name: 归档
+        url: archives
+        weight: 5
+      - name: 搜索
+        url: search
+        weight: 10
+      - name: 标签
+        url: tags
+        weight: 15
+  params:
+    description: ""
+    homeInfoParams:
+      Title: "絣工坊博客"
+      Content: >
+        kasuri works 是一个制作小而真诚游戏的小型工作室。
+        有时，这只是一个人。但我们制作的每一款游戏，都来自某个真实的瞬间：一段记忆、一种委屈、一种没被忘掉的情绪。
+        我们相信游戏不必完美或喧闹。它可以是安静的、不完整的、带着情绪的，只要是真诚的。
+        如果我们做的游戏，能让你在某一刻觉得“我被看见了”，那就足够了。
+ja:
+  languageName: 日本語
+  weight: 9
+  title: カスリワークスブログ
+  menu:
+    main:
+      - name: アーカイブ
+        url: archives
+        weight: 5
+      - name: 検索
+        url: search
+        weight: 10
+      - name: タグ
+        url: tags
+        weight: 15
+  params:
+    description: ""
+    homeInfoParams:
+      Title: "カスリワークスブログ"
+      Content: >
+        kasuri works は、小さくて誠実なゲームを作る、とても小さなスタジオです。
+        時には、たった一人だけ。でも、私たちが作るゲームには、いつも本物の感情が込められています。思い出、悔しさ、忘れられなかった一瞬。
+        ゲームは完璧じゃなくてもいい。静かでも、不器用でも、心から生まれたものであれば。
+        私たちのゲームが、誰かにとって「自分はここにいる」と思える瞬間になれば、それだけで意味があります。

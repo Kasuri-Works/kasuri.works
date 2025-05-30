@@ -1,0 +1,8 @@
+baseURL: https://blog.lookscanned.io/
+languageCode: zh
+title: Kasuri Works Blog
+theme: PaperMod
+hasCJKLanguage: true
+
+defaultContentLanguage: zh
+defaultContentLanguageInSubdir: false

@@ -1,0 +1,30 @@
+env: production
+displayFullLangName: true
+author: "Siyuan Gao"
+ShowReadingTime: true
+ShowShareButtons: true
+ShowPostNavLinks: true
+ShowFullTextinRSS: true
+ShowWordCount: true
+socialIcons:
+  - name: other
+    title: Misskey
+    url: "https://misskey.kasuri.works/@kari_mikumao"
+  - name: github
+    title: Github
+    url: "https://github.com/r1cebank"
+  - name: rss
+    title: RSS
+    url: "index.xml"
+editPost:
+  URL: "https://github.com/Kasuri-Works/kasuri.works/blob/main/content"
+  appendFilePath: true # to append file path to Edit link
+ShowCodeCopyButtons: true
+assets:
+  favicon: "/favicon.ico"
+  favicon16x16: "/favicon-16x16.png"
+  favicon32x32: "/favicon-32x32.png"
+  apple_touch_icon: "/apple-touch-icon.png"
+  disableFingerprinting: true
+comments: true
+ShareButtons: ["x", "linkedin", "reddit", "telegram"]
