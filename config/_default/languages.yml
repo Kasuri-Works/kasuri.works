@@ -15,6 +15,9 @@ en:
         url: tags
         weight: 15
   params:
+    customCSS:
+      - "css/extended/en-font.css"
+      - "css/extended/code-font.css"
     description: ""
     homeInfoParams:
       Title: "Kasuri Works Blog"
@@ -39,6 +42,9 @@ zh:
         url: tags
         weight: 15
   params:
+    customCSS:
+      - "css/extended/zh-font.css"
+      - "css/extended/code-font.css"
     description: ""
     homeInfoParams:
       Title: "絣工坊博客"
@@ -63,6 +69,9 @@ ja:
         url: tags
         weight: 15
   params:
+    customCSS:
+      - "css/extended/ja-font.css"
+      - "css/extended/code-font.css"
     description: ""
     homeInfoParams:
       Title: "カスリワークスブログ"

@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "SFMonoSC";
+  src: url("/fonts/SFMonoSC-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* 正文使用 SFMonoSC */
+html[lang="ja"] body {
+  font-family: "SFMonoSC", system-ui, sans-serif;
+}
+
+/* 代码块等元素强制不继承字体，回退用默认等宽体 */
+html[lang="ja"] pre,
+html[lang="ja"] code,
+html[lang="ja"] kbd,
+html[lang="ja"] samp,
+html[lang="ja"] .highlight,
+html[lang="ja"] .highlight code,
+html[lang="ja"] code[class*="language-"] {
+  font-family: JetBrainsMono, Menlo, monospace !important;
+}
