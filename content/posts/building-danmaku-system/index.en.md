@@ -152,7 +152,7 @@ This code allows us to queue up danmaku and process them in the `_Process` metho
 
 ### Step 5: Fix Overrun Issue
 
-A bug appeared: faster danmaku would overtake slower ones in the same track, causing overlaps. The same effect is also shown on the Bilibili example above. The fix was to introduce a "speed clip" — slower danmaku are only added when the previous one has exited a safe zone.
+There is one issue, because the danmaku are using random speeds, faster danmaku would overtake slower ones in the same track, causing overlaps. The same effect is also shown on the Bilibili example above. The fix was to introduce a "speed clip" — slower danmaku are only added when the previous one has exited a safe zone.
 
 The following code is added to the `DanmakuTrackManager` to check if the track is available:
 
@@ -187,7 +187,6 @@ we can now tie it all together in the main game scene.
 
 ### Conclusion
 
-This danmaku system is now modular, performant, and flexible. It can handle multiple content types, distribute danmaku evenly or with focus, and dynamically calculate spacing to avoid overlaps.
+The danmaku system is now modular, efficient, and easy to extend. It supports different content types, distributes comments across tracks as needed, and manages spacing to prevent overlaps.
 
-It’s a great example of how to build a complex feature in Godot 4 using C# while keeping the architecture clean and maintainable.
-I hope this guide helps you implement your own danmaku system in Godot 4! If you have any questions or suggestions, feel free to reach out. Happy coding!
+This approach keeps the codebase organized and maintainable, making it easier to add new features or tweak behavior later. Hopefully, this walkthrough gives you a solid starting point for building your own danmaku system in Godot 4 with C#. If you have questions or ideas, let me know—happy coding!
