@@ -7,11 +7,11 @@ tags: [Danmaku, BulletComment, IndieGameDev, HelloWorldGoodbye, Godot4, C#]
 description: "使用 Godot 4 和 C# 从零构建一个高性能、可扩展的视频弹幕系统，支持队列调度、轨道分配与速度修正机制，灵感来自 NicoNico 与 Bilibili 弹幕。"
 ---
 
-最近我在《Hello, World. Goodbye.》中构建了一个最能表达情绪的功能之一 —— 视频弹幕系统。这是向 NicoNico 式的子弹评论致敬，也是一种让玩家在沉默中向虚空呐喊，或是倾听他人曾经呐喊过的话语的方式。
+最近我在《Hello, World. Goodbye.》中构建了一个最能表达情绪的功能之一 —— 视频弹幕系统。这是向 NicoNico 式的弹幕评论致敬，也是一种让玩家在沉默中向虚空呐喊，或是倾听他人曾经呐喊过的话语的方式。
 
 ## 🎯 目标
 
-设计一个模块化、流畅、高性能的弹幕（弾幕 / bullet comment）系统，具有以下特点：
+设计一个模块化、流畅、高性能的弹幕系统，具有以下特点：
 
 - 独立于主游戏相机运行（通过专用 Viewport 实现）
 - 支持多种内容类型（文本、图片等）
@@ -91,7 +91,7 @@ public class DanmakuTrackManager
 
 ### 第四步：添加分配器
 
-我们实现了 `IDanmakuTrackDistributor`，用于控制弹幕分配到哪个轨道。支持两种分配模式：
+为了灵活性的管理弹幕分配，我们需要添加一个分配器。因此我创建了一个 `IDanmakuTrackDistributor`，用于控制弹幕分配到哪个轨道。支持两种分配模式：
 
 - 均匀分配：轮流填充各轨道
 - 聚焦分配：集中堆叠到少数轨道，营造视觉冲击
@@ -110,7 +110,7 @@ public class EvenDistributor : IDanmakuTrackDistributor
 
 ### 第五步：添加队列系统
 
-通常我们希望弹幕批量出现，因此需要一个队列系统，统一分发弹幕。例如游戏触发某事件时，批量添加弹幕。
+通常我们希望弹幕批量出现但是不是一次性全都画在屏幕上，因此需要一个队列系统，统一分发弹幕。例如游戏触发某事件时，批量添加弹幕。
 
 ```c#
 public partial class DanmakuSystemController : Node, ISystemModule
@@ -153,16 +153,16 @@ public partial class DanmakuSystemController : Node, ISystemModule
 
 ### 第六步：修复超车问题
 
-出现了一个 bug：同一轨道上速度快的弹幕会“超车”慢弹幕，导致重叠。B 站等平台也有类似现象。解决方法是引入“速度修正”机制——只有前一条弹幕离开安全区后，慢弹幕才允许进入。
+出现了一个 bug：同一轨道上速度快的弹幕会“超车”慢弹幕，导致重叠。B 站等平台也有类似现象。解决方法是引入“速度修正”机制，确保在轨道添加的新的弹幕速度不会超过轨道里已有弹幕的最大速度。
 
-在 `DanmakuTrackManager` 中添加如下代码：
+可以在在 `DanmakuTrackManager` 中添加如下代码：
 
 ```c#
 // 设置初始速度，限制最大速度防止超车
 danmakuData.Speed = Math.Max(GetMaxSpeedInTrack(trackIndex), danmakuData.Speed);
 ```
 
-实现 `GetMaxSpeedInTrack` 方法：
+然后实现 `GetMaxSpeedInTrack` 方法：
 
 ```c#
 private float GetMaxSpeedInTrack(int trackIndex)
