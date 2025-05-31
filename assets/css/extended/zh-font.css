@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "SFMonoSC";
-  src: url("/fonts/SFMonoSC-Regular.woff2") format("woff2");
+  font-family: "NotoSansSC";
+  src: url("/fonts/NotoSansSC-VariableFont_wght.woff2") format("woff2");
   font-display: swap;
 }
 
-/* 正文使用 SFMonoSC */
+/* 正文使用 NotoSansSC */
 html[lang="zh"] body {
-  font-family: "SFMonoSC", system-ui, sans-serif;
+  font-family: "NotoSansSC", system-ui, sans-serif;
 }
 
 /* 代码块等元素强制不继承字体，回退用默认等宽体 */
