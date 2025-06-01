@@ -28,3 +28,6 @@ assets:
   disableFingerprinting: false
 comments: true
 ShareButtons: ["x", "linkedin", "reddit", "telegram"]
+cover:
+  image: "cover.png"
+  relative: true # To use relative path for cover image, used in hugo Page-bundles
