@@ -1,8 +1,8 @@
 baseURL: https://kasuri.works/
-languageCode: zh
+languageCode: en
 title: Kasuri Works Blog
 theme: PaperMod
 hasCJKLanguage: true
 
-defaultContentLanguage: zh
+defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
