@@ -10,6 +10,15 @@ socialIcons:
   - name: other
     title: Misskey
     url: "https://misskey.kasuri.works/@kari_mikumao"
+  - name: x
+    title: x
+    url: "https://x.com/KasuriWorks"
+  - name: other
+    title: Bluesky
+    url: "https://bsky.app/profile/kasuri.works"
+  - name: youtube
+    title: YouTube
+    url: "https://www.youtube.com/@KasuriWorks"
   - name: github
     title: Github
     url: "https://github.com/r1cebank"
