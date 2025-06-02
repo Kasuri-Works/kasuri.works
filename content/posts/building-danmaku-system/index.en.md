@@ -152,7 +152,7 @@ This code allows us to queue up danmaku and process them in the `_Process` metho
 
 ### Step 5: Fix Overrun Issue
 
-There is one issue, because the danmaku are using random speeds, faster danmaku would overtake slower ones in the same track, causing overlaps. The same effect is also shown on the Bilibili example above. The fix was to introduce a "speed clip" — slower danmaku are only added when the previous one has exited a safe zone.
+There is one issue, because the danmaku are using random speeds, faster danmaku would overtake slower ones in the same track, causing overlaps. The same effect is also shown on the Bilibili example above. The fix was to introduce a "speed clip" to ensure that the danmaku speed does not exceed the maximum speed of all danmakus in the track.
 
 The following code is added to the `DanmakuTrackManager` to check if the track is available:
 
