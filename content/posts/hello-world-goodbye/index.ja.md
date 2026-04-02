@@ -1,7 +1,6 @@
 ---
 title: "HelloWorld.GoodBye()"
 date: 2025-05-29T14:00:11
-lang: ja
 categories: [GameDev, IndieGame, works]
 tags: [programmer, indie game, emotional release, HelloWorldGoodbye]
 description: "一人のプログラマーが、感情をドットにして書き残す——これは世界に向けた return のない goodbye。"

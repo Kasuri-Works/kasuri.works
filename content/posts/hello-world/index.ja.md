@@ -1,7 +1,6 @@
 ---
 title: "こんにちは、世界"
 date: 2025-05-29T10:00:11
-lang: ja
 categories:
   - introduction
 tags:

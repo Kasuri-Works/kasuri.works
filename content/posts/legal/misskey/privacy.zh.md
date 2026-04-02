@@ -1,6 +1,5 @@
 ---
 title: "Privacy Policy"
-lang: zh
 layout: page
 _build:
   list: never

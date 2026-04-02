@@ -1,7 +1,6 @@
 ---
 title: "Building Video Danmaku in Godot 4"
 date: "2025-05-30T14:32:08-07:00"
-lang: en
 categories: [Devlog, Godot4, C#]
 tags: [Danmaku, BulletComment, IndieGameDev, HelloWorldGoodbye, Godot4, C#]
 description: A deep dive into the modular danmaku comment system design for a narrative-driven action game built in Godot 4 with C#.

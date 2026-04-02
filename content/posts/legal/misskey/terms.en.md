@@ -1,6 +1,5 @@
 ---
 title: "Terms of Service"
-lang: en
 layout: page
 _build:
   list: never

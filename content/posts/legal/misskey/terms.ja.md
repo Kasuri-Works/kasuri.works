@@ -1,6 +1,5 @@
 ---
 title: "利用規約"
-lang: ja
 layout: page
 _build:
   list: never

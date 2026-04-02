@@ -1,6 +1,5 @@
 ---
 title: "服务条款"
-lang: zh
 layout: page
 _build:
   list: never

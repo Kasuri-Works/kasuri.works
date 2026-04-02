@@ -1,6 +1,5 @@
 ---
 title: "プライバシーポリシー"
-lang: ja
 layout: page
 _build:
   list: never

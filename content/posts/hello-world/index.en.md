@@ -1,7 +1,6 @@
 ---
 title: "Hello, World"
 date: 2025-05-29T10:00:11
-lang: en
 categories:
   - introduction
 tags:

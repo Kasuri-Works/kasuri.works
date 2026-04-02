@@ -1,7 +1,6 @@
 ---
 title: "HelloWorld.GoodBye()"
 date: 2025-05-29T14:00:11
-lang: en
 categories: [GameDev, IndieGame]
 tags: [programmer, indie game, emotional release, HelloWorldGoodbye]
 description: "A solo project from a developer trying to say something. This game is made of code, pixels, and everything I couldn't say in words."

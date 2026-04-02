@@ -1,6 +1,5 @@
 ---
 title: "Privacy Policy"
-lang: en
 layout: page
 _build:
   list: never

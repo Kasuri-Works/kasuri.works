@@ -1,7 +1,6 @@
 ---
 title: "HelloWorld.GoodBye()"
 date: 2025-05-29T14:00:11
-lang: zh
 categories: [GameDev, IndieGame]
 tags: [programmer, indie game, emotional release, HelloWorldGoodbye]
 description: "来自一个程序员的独立开发游戏，用像素和愤怒写下一句系统无法理解的告别。也许你也曾有过这样的时刻。"

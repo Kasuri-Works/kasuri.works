@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i '' '/^lang: /d' \"$f\")",
+      "Bash(done)",
+      "Bash(hugo build:*)"
+    ]
+  }
+}

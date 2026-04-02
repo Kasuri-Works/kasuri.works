@@ -1,7 +1,6 @@
 ---
 title: "在 Godot 4 中构建视频弹幕系统"
 date: "2025-05-30T14:32:08-07:00"
-lang: zh
 categories: [Devlog, Godot4, C#]
 tags: [Danmaku, BulletComment, IndieGameDev, HelloWorldGoodbye, Godot4, C#]
 description: "使用 Godot 4 和 C# 从零构建一个高性能、可扩展的视频弹幕系统，支持队列调度、轨道分配与速度修正机制，灵感来自 NicoNico 与 Bilibili 弹幕。"

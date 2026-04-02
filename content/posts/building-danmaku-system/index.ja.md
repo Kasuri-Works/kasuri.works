@@ -1,7 +1,6 @@
 ---
 title: "Godot 4 で作るビデオ弾幕システム"
 date: "2025-05-30T14:32:08-07:00"
-lang: ja
 categories: [Devlog, Godot4, C#]
 tags: [Danmaku, BulletComment, IndieGameDev, HelloWorldGoodbye, Godot4, C#]
 description: "Godot 4 と C# を使って、ニコニコ風の弾幕コメントシステムをゼロから構築したプロセスを紹介します。独立した Viewport、トラック制御、速度補正などを備えた高性能な実装例です。"
