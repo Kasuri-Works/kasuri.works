@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "NotoSansTC";
+  src: url("/fonts/NotoSansTC-VariableFont_wght.woff2") format("woff2");
+  font-display: swap;
+}
+
+html[lang="zh-tw"] body {
+  font-family: "NotoSansTC", system-ui, sans-serif;
+}
+
+html[lang="zh-tw"] pre,
+html[lang="zh-tw"] code,
+html[lang="zh-tw"] kbd,
+html[lang="zh-tw"] samp,
+html[lang="zh-tw"] .highlight,
+html[lang="zh-tw"] .highlight code,
+html[lang="zh-tw"] code[class*="language-"] {
+  font-family: JetBrainsMono, Menlo, monospace !important;
+}

@@ -5,7 +5,9 @@
       "Bash(do)",
       "Bash(sed -i '' '/^lang: /d' \"$f\")",
       "Bash(done)",
-      "Bash(hugo build:*)"
+      "Bash(hugo build:*)",
+      "Bash(echo \"=== $f ===\")",
+      "Read(//Users/siyuangao/Documents/kasuri.works/**)"
     ]
   }
 }

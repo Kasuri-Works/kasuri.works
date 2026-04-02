@@ -53,6 +53,34 @@ zh:
         有时，这只是一个人。但我们制作的每一款游戏，都来自某个真实的瞬间：一段记忆、一种委屈、一种没被忘掉的情绪。
         我们相信游戏不必完美或喧闹。它可以是安静的、不完整的、带着情绪的，只要是真诚的。
         如果我们做的游戏，能让你在某一刻觉得“我被看见了”，那就足够了。
+zh-tw:
+  languageCode: zh-TW
+  languageName: 繁體中文
+  weight: 3
+  title: 絣工坊部落格
+  menu:
+    main:
+      - name: 歸檔
+        url: archives
+        weight: 5
+      - name: 搜尋
+        url: search
+        weight: 10
+      - name: 標籤
+        url: tags
+        weight: 15
+  params:
+    customCSS:
+      - "css/extended/zh-tw-font.css"
+      - "css/extended/code-font.css"
+    description: ""
+    homeInfoParams:
+      Title: "絣工坊部落格"
+      Content: >
+        kasuri works 是一個製作小而真誠遊戲的小型工作室。
+        有時，這只是一個人。但我們製作的每一款遊戲，都來自某個真實的瞬間：一段記憶、一種委屈、一種沒被忘掉的情緒。
+        我們相信遊戲不必完美或喧鬧。它可以是安靜的、不完整的、帶著情緒的，只要是真誠的。
+        如果我們做的遊戲，能讓你在某一刻覺得「我被看見了」，那就足夠了。
 ja:
   languageName: 日本語
   weight: 9
