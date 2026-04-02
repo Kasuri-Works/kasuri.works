@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wari – Support</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #5B8CFF;
+      --accent-light: #EEF3FF;
+      --text: #1C1C1E;
+      --text-secondary: #6C6C70;
+      --border: #E5E5EA;
+      --bg: #F2F2F7;
+      --card: #FFFFFF;
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .app-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #5B8CFF 0%, #3D5FCF 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(91,140,255,0.35);
+    }
+
+    .brand-text h1 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+
+    .brand-text p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+
+    /* ── Language switcher ── */
+    .lang-switcher {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .lang-btn {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* ── Main layout ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── Section titles ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      padding-left: 4px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    /* ── FAQ accordion ── */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: background 0.1s ease;
+    }
+
+    .faq-question:hover {
+      background: var(--bg);
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .faq-chevron svg {
+      width: 10px;
+      height: 10px;
+      stroke: var(--accent);
+      stroke-width: 2.5;
+      fill: none;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-chevron {
+      background: var(--accent);
+    }
+
+    .faq-item.open .faq-chevron svg {
+      stroke: #fff;
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* ── Privacy section ── */
+    .privacy-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .privacy-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #E8F5E9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .privacy-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: #2E7D32;
+      stroke-width: 1.8;
+      fill: none;
+    }
+
+    .privacy-body h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .privacy-body p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── Contact ── */
+    .contact-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .contact-card a {
+      display: inline-block;
+      padding: 10px 24px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 22px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .contact-card a:hover { opacity: 0.85; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 480px) {
+      .site-header {
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .lang-switcher { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="brand">
+    <div class="app-icon">W</div>
+    <div class="brand-text">
+      <h1>Wari</h1>
+      <p data-i18n="tagline">Fair Splits, Every Time</p>
+    </div>
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('ja')">日本語</button>
+    <button class="lang-btn" onclick="setLang('zh')">简体中文</button>
+    <button class="lang-btn" onclick="setLang('zh-tw')">繁體中文</button>
+  </div>
+</header>
+
+<!-- ── Main ── -->
+<main class="container">
+
+  <!-- FAQ -->
+  <p class="section-label" data-i18n="faq_label">Frequently Asked Questions</p>
+  <div class="card" id="faq-list">
+    <!-- items injected by JS -->
+  </div>
+
+  <!-- Privacy -->
+  <p class="section-label" data-i18n="privacy_label">Privacy</p>
+  <div class="privacy-card">
+    <div class="privacy-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div class="privacy-body">
+      <h3 data-i18n="privacy_title">Your data stays on your device</h3>
+      <p data-i18n="privacy_body">Wari stores all data locally on your device. No account is required, and no personal data is ever sent to any server. Receipt scanning is processed entirely on-device using the device camera — no images are uploaded.</p>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <p class="section-label" data-i18n="contact_label">Contact</p>
+  <div class="contact-card">
+    <p data-i18n="contact_body">Still have questions? We're happy to help.</p>
+    <a href="mailto:admin@kasuri.works" data-i18n="contact_btn">Email Support</a>
+  </div>
+
+</main>
+
+<footer>
+  <span data-i18n="footer">© 2025 Kasuri Works. All rights reserved.</span>
+</footer>
+
+<script>
+const i18n = {
+  en: {
+    tagline: "Fair Splits, Every Time",
+    faq_label: "Frequently Asked Questions",
+    privacy_label: "Privacy",
+    privacy_title: "Your data stays on your device",
+    privacy_body: "Wari stores all data locally on your device. No account is required, and no personal data is ever sent to any server. Receipt scanning is processed entirely on-device using the device camera — no images are uploaded.",
+    contact_label: "Contact",
+    contact_body: "Still have questions? We're happy to help.",
+    contact_btn: "Email Support",
+    footer: "© 2025 Kasuri Works. All rights reserved.",
+    faq: [
+      {
+        q: "How do I create a trip?",
+        a: "Tap the \"+\" button on the home screen, enter a trip name and select the base currency, then tap \"Create.\""
+      },
+      {
+        q: "How do I add friends to a trip?",
+        a: "Open the trip, go to Members, and tap \"Add Member.\" Enter a name to add them as a local contact within the trip — no phone contacts or accounts needed."
+      },
+      {
+        q: "How do I split a bill unevenly?",
+        a: "When adding a bill, tap \"Split\" and choose \"By Amount,\" \"By Percentage,\" or \"By Item\" to customize each person's share."
+      },
+      {
+        q: "Can I change the currency after creating a trip?",
+        a: "Yes. Open the trip settings and tap \"Currency\" to change it. Existing amounts will be recalculated using the new base currency."
+      },
+      {
+        q: "How do I settle up?",
+        a: "Go to the \"Settle Up\" tab in your trip. Wari calculates the minimum number of transfers needed and shows you exactly who pays whom."
+      },
+      {
+        q: "What happens when I delete a trip?",
+        a: "All trip data — members, bills, and settlements — is permanently deleted from your device. This action cannot be undone."
+      },
+      {
+        q: "How do I edit my profile name?",
+        a: "Go to Settings → Profile and tap your name to edit it. Your name appears as the default payer when you add bills."
+      },
+      {
+        q: "Can I use Wari offline?",
+        a: "Yes. All core features work fully offline. Receipt scanning uses the device camera but requires no internet connection. All trip data is stored entirely on your device."
+      },
+      {
+        q: "How do I share a trip summary?",
+        a: "Open the trip and tap the share icon in the top-right corner. You can send a text summary via any app installed on your device."
+      },
+      {
+        q: "What are the tips in the Support section?",
+        a: "Tips are short in-app hints covering common workflows — like quickly adding bills, using the item-split feature, and reading the settlement graph."
+      }
+    ]
+  },
+
+  ja: {
+    tagline: "いつでも公平な割り勘を",
+    faq_label: "よくある質問",
+    privacy_label: "プライバシー",
+    privacy_title: "データはデバイス上に保存されます",
+    privacy_body: "Wari はすべてのデータをデバイス上にローカル保存します。アカウントは不要で、個人データがサーバーに送信されることはありません。レシートスキャンはデバイスのカメラを使用してオンデバイスで処理され、画像がアップロードされることはありません。",
+    contact_label: "お問い合わせ",
+    contact_body: "ご不明な点がありましたら、お気軽にご連絡ください。",
+    contact_btn: "メールでサポートに連絡",
+    footer: "© 2025 Kasuri Works. All rights reserved.",
+    faq: [
+      {
+        q: "旅行を作成するにはどうすればいいですか？",
+        a: "ホーム画面の「＋」ボタンをタップし、旅行名と基本通貨を選択して「作成」をタップしてください。"
+      },
+      {
+        q: "旅行に友達を追加するにはどうすればいいですか？",
+        a: "旅行を開き、「メンバー」に移動して「メンバーを追加」をタップします。名前を入力して追加できます。連絡先やアカウントは必要ありません。"
+      },
+      {
+        q: "割り勘を不均等にするにはどうすればいいですか？",
+        a: "費用を追加する際、「分割」をタップして「金額で」「割合で」「品目で」のいずれかを選択すると、各自の負担額を細かく設定できます。"
+      },
+      {
+        q: "旅行作成後に通貨を変更できますか？",
+        a: "はい。旅行の設定を開き「通貨」をタップして変更できます。既存の金額は新しい基本通貨で再計算されます。"
+      },
+      {
+        q: "精算するにはどうすればいいですか？",
+        a: "旅行内の「精算」タブに移動します。Wari が最小の送金回数を計算し、誰が誰にいくら払うかを表示します。"
+      },
+      {
+        q: "旅行を削除するとどうなりますか？",
+        a: "メンバー、費用、精算記録を含むすべての旅行データがデバイスから完全に削除されます。この操作は元に戻せません。"
+      },
+      {
+        q: "プロフィール名を編集するにはどうすればいいですか？",
+        a: "設定 → プロフィールに移動し、名前をタップして編集します。この名前は費用を追加する際のデフォルトの支払者として表示されます。"
+      },
+      {
+        q: "Wari はオフラインで使えますか？",
+        a: "はい。すべての主要機能はオフラインで動作します。レシートスキャンはカメラを使用しますが、インターネット接続は不要です。旅行データはすべてデバイス上に保存されます。"
+      },
+      {
+        q: "旅行のサマリーを共有するにはどうすればいいですか？",
+        a: "旅行を開き、右上の共有アイコンをタップします。デバイスにインストールされている任意のアプリでテキストサマリーを共有できます。"
+      },
+      {
+        q: "サポートセクションのヒントとは何ですか？",
+        a: "ヒントは、費用の素早い追加・品目分割機能の使い方・精算グラフの見方など、よくある操作をカバーするアプリ内の短いガイドです。"
+      }
+    ]
+  },
+
+  zh: {
+    tagline: "公平分账，每次都准",
+    faq_label: "常见问题",
+    privacy_label: "隐私",
+    privacy_title: "您的数据保存在设备上",
+    privacy_body: "Wari 将所有数据本地存储在您的设备上。无需注册账户，任何个人数据都不会发送至任何服务器。收据扫描完全在设备上通过摄像头处理，不会上传任何图片。",
+    contact_label: "联系我们",
+    contact_body: "还有问题？我们很乐意为您解答。",
+    contact_btn: "发送邮件至支持团队",
+    footer: "© 2025 Kasuri Works. 保留所有权利。",
+    faq: [
+      {
+        q: "如何创建旅行？",
+        a: "点击主页上的「+」按钮，输入旅行名称并选择基本货币，然后点击「创建」。"
+      },
+      {
+        q: "如何向旅行中添加朋友？",
+        a: "打开旅行，进入「成员」，点击「添加成员」。输入姓名即可将其添加，无需通讯录或账户。"
+      },
+      {
+        q: "如何不均等分摊账单？",
+        a: "添加账单时，点击「分摊」，选择「按金额」、「按百分比」或「按项目」来自定义每人的份额。"
+      },
+      {
+        q: "创建旅行后可以更改货币吗？",
+        a: "可以。打开旅行设置，点击「货币」进行更改。现有金额将按新的基本货币重新计算。"
+      },
+      {
+        q: "如何结算？",
+        a: "进入旅行中的「结算」标签页。Wari 会计算所需的最少转账次数，并显示谁需要向谁付款。"
+      },
+      {
+        q: "删除旅行后会发生什么？",
+        a: "旅行的所有数据——成员、账单和结算记录——将从您的设备上永久删除，且无法撤销。"
+      },
+      {
+        q: "如何编辑个人资料名称？",
+        a: "进入「设置」→「个人资料」，点击您的名称进行编辑。添加账单时，该名称将显示为默认付款人。"
+      },
+      {
+        q: "Wari 可以离线使用吗？",
+        a: "可以。所有核心功能均可离线使用。收据扫描需要摄像头，但无需网络连接。旅行数据完全存储在您的设备上。"
+      },
+      {
+        q: "如何分享旅行摘要？",
+        a: "打开旅行，点击右上角的分享图标，通过设备上安装的任意应用分享文字摘要。"
+      },
+      {
+        q: "支持页面中的小贴士是什么？",
+        a: "小贴士是应用内的简短提示，涵盖快速添加账单、使用按项目分摊功能、查看结算图表等常见操作。"
+      }
+    ]
+  },
+
+  "zh-tw": {
+    tagline: "公平分帳，每次都準",
+    faq_label: "常見問題",
+    privacy_label: "隱私",
+    privacy_title: "您的資料保存在裝置上",
+    privacy_body: "Wari 將所有資料本地儲存在您的裝置上。無需註冊帳戶，任何個人資料都不會傳送至任何伺服器。收據掃描完全在裝置上透過相機處理，不會上傳任何圖片。",
+    contact_label: "聯絡我們",
+    contact_body: "還有問題？我們很樂意為您解答。",
+    contact_btn: "發送郵件至支援團隊",
+    footer: "© 2025 Kasuri Works. 保留所有權利。",
+    faq: [
+      {
+        q: "如何建立旅程？",
+        a: "點擊主頁上的「+」按鈕，輸入旅程名稱並選擇基本貨幣，然後點擊「建立」。"
+      },
+      {
+        q: "如何在旅程中新增朋友？",
+        a: "開啟旅程，進入「成員」，點擊「新增成員」。輸入姓名即可將其新增，無需通訊錄或帳戶。"
+      },
+      {
+        q: "如何不均等分攤帳單？",
+        a: "新增帳單時，點擊「分攤」，選擇「按金額」、「按百分比」或「按項目」來自訂每人的份額。"
+      },
+      {
+        q: "建立旅程後可以更改貨幣嗎？",
+        a: "可以。開啟旅程設定，點擊「貨幣」進行更改。現有金額將按新的基本貨幣重新計算。"
+      },
+      {
+        q: "如何結算？",
+        a: "進入旅程中的「結算」分頁。Wari 會計算所需的最少轉帳次數，並顯示誰需要向誰付款。"
+      },
+      {
+        q: "刪除旅程後會發生什麼？",
+        a: "旅程的所有資料——成員、帳單和結算記錄——將從您的裝置上永久刪除，且無法復原。"
+      },
+      {
+        q: "如何編輯個人資料名稱？",
+        a: "進入「設定」→「個人資料」，點擊您的名稱進行編輯。新增帳單時，該名稱將顯示為預設付款人。"
+      },
+      {
+        q: "Wari 可以離線使用嗎？",
+        a: "可以。所有核心功能均可離線使用。收據掃描需要相機，但無需網路連線。旅程資料完全儲存在您的裝置上。"
+      },
+      {
+        q: "如何分享旅程摘要？",
+        a: "開啟旅程，點擊右上角的分享圖示，透過裝置上安裝的任意應用程式分享文字摘要。"
+      },
+      {
+        q: "支援頁面中的小提示是什麼？",
+        a: "小提示是應用程式內的簡短提示，涵蓋快速新增帳單、使用按項目分攤功能、查看結算圖表等常見操作。"
+      }
+    ]
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = i18n[lang];
+
+  // Update html lang attribute
+  document.documentElement.lang = lang === 'zh-tw' ? 'zh-TW' : lang;
+
+  // Update static i18n keys
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+
+  // Re-render FAQ
+  renderFAQ(lang);
+
+  // Update active button
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick') === `setLang('${lang}')`);
+  });
+}
+
+function renderFAQ(lang) {
+  const t = i18n[lang];
+  const list = document.getElementById('faq-list');
+  list.innerHTML = t.faq.map((item, i) => `
+    <div class="faq-item" id="faq-${i}">
+      <button class="faq-question" onclick="toggleFAQ(${i})" aria-expanded="false">
+        <span>${item.q}</span>
+        <span class="faq-chevron">
+          <svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">${item.a}</div>
+    </div>
+  `).join('');
+}
+
+function toggleFAQ(index) {
+  const item = document.getElementById(`faq-${index}`);
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item.open').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+  });
+  // Open clicked if it was closed
+  if (!isOpen) {
+    item.classList.add('open');
+    item.querySelector('.faq-question').setAttribute('aria-expanded', 'true');
+  }
+}
+
+// Init
+renderFAQ('en');
+</script>
+</body>
+</html>
